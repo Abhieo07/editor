@@ -39,8 +39,6 @@
     });
 </script>
 
-{% if not last %}
-
 <form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     <div class="row mt-3">
@@ -57,17 +55,4 @@
     <button type="submit" class="btn btn-primary mt-3">Upload</button>
 </form>
 
-{% else %}
-<div class="row mt-3">
-    <div class="col-md-5 border border-dark p-3 rounded">
-        <video src="{{ MEDIA_URL }}{{ last.video.url }} " controls></video>
-    </div>
-    <div class="col-md-7 rounded">
-        <textarea  class="col-md-12 border border-dark p-3 rounded">{{ last.text }}
-        </textarea>
-    </div>
-</div>
-<button class="btn-success rounded mt-3" disabled readonly>Upload Successfuly</button>
-
-{% endif %}
 {% endblock %}
